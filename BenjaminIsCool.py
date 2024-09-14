@@ -12,4 +12,4 @@ for score_3 in dart_score_3:
             print(score_1, score_2, score_3, "Total score is: ", score)
 
 print(sorted(set(scores)))
-print(scores)
+
