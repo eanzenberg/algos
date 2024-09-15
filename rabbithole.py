@@ -1,5 +1,6 @@
 from typing import List
 
+
 def getMaxVisitableWebpages(N: int, L: List[int]) -> int:
     reached = dict()
     res = 0
@@ -11,12 +12,17 @@ def getMaxVisitableWebpages(N: int, L: List[int]) -> int:
             if first:
                 reached[i+1].append(i+1)
                 first = False
+            if ii in reached and L[ii - 1] not in reached:
+                _to_extend = reached[ii]
+                reached[i+1].extend(_to_extend)
+                print(f"{i+1} Found {ii}, {reached[ii]}")
+                break
             reached[i+1].append(ii)
             ii = L[ii - 1]
-        length = len(set(reached[i+1]))
+        length = len(reached[i+1])
         if length > res:
             res = length
-    print(reached)
+        print(reached)
     return res
 
 

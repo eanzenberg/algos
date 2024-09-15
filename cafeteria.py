@@ -51,14 +51,14 @@ def getMaxAdditionalDinersCount(N, K, M, S):
     return additional_diners
 
 
-#print(_getMaxAdditionalDinersCount(10, 1, 2, [6, 4]), 3)
+print(_getMaxAdditionalDinersCount(10, 1, 2, [6, 4]), 3)
 print(getMaxAdditionalDinersCount(10, 1, 2, [6, 4]), 3)
-#print(_getMaxAdditionalDinersCount(10, 1, 0, []), 5)
+print(_getMaxAdditionalDinersCount(10, 1, 0, []), 5)
 print(getMaxAdditionalDinersCount(10, 1, 0, []), 5)
-#print(_getMaxAdditionalDinersCount(15, 2, 3, [11, 6, 14]), 1)
+print(_getMaxAdditionalDinersCount(15, 2, 3, [11, 6, 14]), 1)
 print(getMaxAdditionalDinersCount(15, 2, 3, [11, 6, 14]), 1)
 print(getMaxAdditionalDinersCount(10000000, 1000, 0, []), 9991)
-#print(_getMaxAdditionalDinersCount(1000, 1, 0, []), 9990)
+print(_getMaxAdditionalDinersCount(1000, 1, 0, []), 9990)
 print(getMaxAdditionalDinersCount(1000, 1, 0, []), 500)
 print(getMaxAdditionalDinersCount(100, 1, 50, [i for i in range(1, 101) if i % 2 == 1]), 0)
 print(getMaxAdditionalDinersCount(10, 0, 2, [2, 6]), 8)
