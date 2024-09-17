@@ -25,51 +25,63 @@ def _getMaxVisitableWebpages(N: int, L: List[int]) -> int:
     print(reached)
     return res
 
-def longest_unique_path(graph):
-    def dfs(node, visited):
-        visited.add(node)
-        max_length = 1  # At least the current node
-        path = [node]  # Start the path with the current node
-
-        # Explore all possible paths
-        if node in graph and graph[node] not in visited:
-            next_length, next_path = dfs(graph[node], visited.copy())
-            max_length += next_length
-            path += next_path
-
-        return max_length, path
-
-    max_path_len = 0
-    longest_path = []
-
-    # Try starting from each node
-    for start_node in graph:
-        length, path = dfs(start_node, set())
-        if length > max_path_len:
-            max_path_len = length
-            longest_path = path
-
-    return longest_path, max_path_len
-
 
 def getMaxVisitableWebpages(N: int, L: List[int]) -> int:
     visited_graph = {}
-    def traverse(x):
+    def directed_graph(x):
         if x in visited_graph.keys():
             return
         else:
             visited_graph[x] = L[x - 1]
-            traverse(L[x - 1])
+            directed_graph(L[x - 1])
 
     for i in range(1, N+1):
-        traverse(i)
+        directed_graph(i)
+
     print(f"{visited_graph}")
 
-    result = longest_unique_path(visited_graph)
-    print(result)
-    return result[1]
+    loops = {}
+    chain = {}
+
+    def traverse(k, length, visited_in_loop):
+        v = visited_graph[k]
+        print(f"traverse: {k}, {v}, {chain}, {visited_in_loop}")
+        if k in loops.keys():
+            pass
+        elif v in chain and visited_graph[v] != k and v not in visited_in_loop:
+            chain[k] = chain[v] + 1
+        elif v in chain and visited_graph[v] == k:
+            chain[k] = 2
+        elif v in chain and v in visited_in_loop:
+            ix = visited_in_loop.index(v)
+            loop_length = len(visited_in_loop) + 1 - ix
+            loops[k] = loop_length
+            chain[k] = loop_length
+            for kk in visited_in_loop[ix:]:
+                loops[kk] = loop_length
+                chain[kk] = loop_length
+            if ix != 0:
+                for i in visited_in_loop[0:ix]:
+                    del chain[i]
+                traverse(visited_in_loop[0], 1, [])
+        while k not in chain:
+            length += 1
+            chain[k] = length
+            visited_in_loop.append(k)
+            traverse(v, length, visited_in_loop)
+
+    for k, v in visited_graph.items():
+        length = 1
+        traverse(k, length, [])
+        print(k, v, chain, loops)
+
+    return max(chain.values())
 
 
-print(getMaxVisitableWebpages(4, [4, 1, 2, 1]), 4)
-print(getMaxVisitableWebpages(5, [4, 3, 5, 1, 2]), 3)
-print(getMaxVisitableWebpages(5, [2, 4, 2, 2, 3]), 4)
+# print(getMaxVisitableWebpages(4, [4, 1, 2, 1]), 4)
+# print(getMaxVisitableWebpages(5, [4, 3, 5, 1, 2]), 3)
+# print(getMaxVisitableWebpages(6, [4, 3, 5, 1, 2, 2]), 4)
+# print(getMaxVisitableWebpages(5, [2, 4, 2, 2, 3]), 4)
+# print(getMaxVisitableWebpages(5, [2, 3, 4, 5, 1]), 5)
+# print(getMaxVisitableWebpages(6, [2, 1, 4, 3, 6, 5]), 2)
+print(getMaxVisitableWebpages(5, [2, 3, 4, 5, 3]), 5)
