@@ -27,8 +27,7 @@ def getSecondsRequired(R: int, C: int, G: List[List[str]]) -> int:
             found_end.append(length)
 
         if map_of_field[x, y].isalpha() and map_of_field[x, y] not in 'SE':
-            portal = map_of_field[x, y]
-            other_portals = inv_map_of_field[portal]
+            other_portals = inv_map_of_field[map_of_field[x, y]]
             other_portals.remove((x, y))
             for other_portal in other_portals:
                 queue.append((other_portal[0], other_portal[1], length + 1))
@@ -49,5 +48,5 @@ def getSecondsRequired(R: int, C: int, G: List[List[str]]) -> int:
         return min(found_end)
 
 
-#print(getSecondsRequired(3, 3, [".E.", ".#E", ".S#"]), 4)
+print(getSecondsRequired(3, 3, [".E.", ".#E", ".S#"]), 4)
 print(getSecondsRequired(3, 4, ["aS.b", "####", "Eb.a"]), 4)
