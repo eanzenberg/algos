@@ -1,7 +1,6 @@
 from typing import List
 from collections import deque, defaultdict
 
-
 def getSecondsRequired(R: int, C: int, G: List[List[str]]) -> int:
     map_of_field = {}
     inv_map_of_field = defaultdict(list)
