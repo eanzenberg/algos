@@ -27,10 +27,10 @@ def calculate(s: str) -> int:
             raise Exception
         leftNum, Lix = findNums(s, ix, 'l')
         rightNum, Rix = findNums(s, ix, 'r')
- #       print(f"{s} {leftNum}, {Lix}, {rightNum}, {Rix}")
         Lix = 0 if Lix == 0 else Lix + 1
         Rix = len(s) if Rix + 1 == len(s) else Rix 
- #       print(f"{s} {leftNum}, {Lix}, {rightNum}, {Rix}")
+        
+        print(f"twoNum: {s}, {leftNum}, {Lix}, {rightNum}, {Rix}, {ix}")
         if op == '*':
             return (leftNum * rightNum, Lix, Rix)
         else:
@@ -42,6 +42,7 @@ def calculate(s: str) -> int:
         if c in "*/":
             solution, Lix, Rix = twoNumProductDivide(s, i, c)
             s = f"{s[:Lix]}{solution}{s[Rix:]}"
+            i = Lix + len(str(solution))
             print(f"updated s: {s}, {i}")
         else:
             i += 1
