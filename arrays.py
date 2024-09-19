@@ -1,14 +1,10 @@
-def moveZeros(l: []):
-    i = 0
-    while i < len(l):
+def moveZeros(l: list()):
+    for i in range(len(l)):
         if l[i] == 0:
             l = l[0:i] + l[i+1:] + [0]
-        i += 1
 
     num_nonzeros = sum([x != 0 for x in l])
-    return l, num_nonzeros  # Time: O(2N) Memory: O(N)
-
-
+    return l #, num_nonzeros  # Time: O(2N) Memory: O(N)
 
 def sumToZero(l: []):
     for i in range(len(l)):
@@ -27,11 +23,12 @@ def sumToZeroFast(l: []):
                 sums[l[i]+l[j]] = None
     for i in range(len(l)):
         if l[i] * -1 in sums.keys():
-            print(l[i], sums[l[i] * -1])
+            print(l[i], sums.keys())
             return True
 
     return False # Time O(N^2 + N) Space O(N^2)
 
-# print(moveZeros([0, 1, 0, 3, 2, 0, 5]))
+print(moveZeros([0, 1, 0, 3, 2, 0, 5]))
 # print(sumToZero([3, 5, 8, 10, -9, -11, 16, 2]))
-print(sumToZeroFast([3, 5, 8, 10, -9, -11, 16, 2]))
+# print(sumToZeroFast([3, 5, 8, 10, -9, -11, 16, 2]))
+print(moveZeros([0,1,0,3,12]))
