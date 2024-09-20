@@ -25,6 +25,7 @@ def palindromePairs(words: List[str]) -> List[List[int]]:
     
     return solution
 
+
 print(palindromePairs(["abcd","dcba","lls","s","sssll"]))
 print(palindromePairs(["bat","tab","cat"]))
 print(palindromePairs(["a",""]))
