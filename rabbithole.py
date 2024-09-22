@@ -43,6 +43,7 @@ def getMaxVisitableWebpages(N: int, L: List[int]) -> int:
     loops = {}
     chain = {}
 
+
     def traverse(k, length, visited_in_loop):
         v = visited_graph[k]
 #        print(f"traverse: {k}, {v}, {chain}, {visited_in_loop}")

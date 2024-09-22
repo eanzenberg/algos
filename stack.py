@@ -11,6 +11,7 @@ def getMinimumDeflatedDiscCount(N: int, R: List[int]) -> int:
             count += 1
     return count
 
+
 print(getMinimumDeflatedDiscCount(5, [2, 5, 3, 6, 5]), 3)
 print(getMinimumDeflatedDiscCount(3, [100, 100, 100]), 2)
 print(getMinimumDeflatedDiscCount(4, [6, 5, 4, 3]), -1)

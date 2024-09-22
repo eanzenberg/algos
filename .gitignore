@@ -3,4 +3,5 @@ arrays.py
 .vscode/
 /__pycache__/*
 /.pytest_cache/*
+.pytest_cache
 scratch.py

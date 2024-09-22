@@ -22,6 +22,7 @@ def calculate(s: str) -> int:
             else:
                 ix -= 1
  
+
     def twoNumProductDivide(s: str, ix: int, op: str) -> (int, int, int):
         if op not in '/*':
             raise Exception
@@ -35,6 +36,7 @@ def calculate(s: str) -> int:
             return (leftNum * rightNum, Lix, Rix)
         else:
             return (leftNum // rightNum, Lix, Rix)
+
 
     i = 0          
     while i < len(s):
@@ -73,6 +75,7 @@ def calculate(s: str) -> int:
     if first:
         return int(float(s))
     return solution
+
 
 print(calculate(" 3+5 / 2 "), 5)
 print(calculate(" 3/2 "), 1)

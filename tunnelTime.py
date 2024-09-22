@@ -26,6 +26,7 @@ def getSecondsElapsed(C: int, N: int, A: List[int], B: List[int], K: int) -> int
 
     return tunnelTime
 
+
 print(getSecondsElapsed(10, 2, [1,6], [3, 7], 7), 22)
 print(getSecondsElapsed(10, 2, [1,6], [3, 7], 3), 7)
 print(getSecondsElapsed(10, 2, [1,6], [3, 7], 6), 17)
