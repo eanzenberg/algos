@@ -33,9 +33,6 @@ def pattern_matches(string: str, pattern: str) -> bool:
     return True
 
 
-print(pattern_matches('facebook', 'f6k'), True)
-print(pattern_matches('face', 'f6k'), False)
+print(pattern_matches('alkiopub', 'a6b'), True)
+print(pattern_matches('abcd', 'a6d'), False)
 print(pattern_matches('internationalization', 'i18n'), True)
-
-# i18n 
-# f6k 'facebook'
