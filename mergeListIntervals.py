@@ -10,7 +10,7 @@ def merge(intervals: List[List[int]]) -> List[List[int]]:
         if merged_interval == [None, None]:
             merged_interval = current_interval
 
-        elif current_interval[0] <= merged_interval[1] and current_interval[1] > merged_interval[1]:
+        elif current_interval[0] <= merged_interval[1] < current_interval[1]:
             merged_interval[1] = current_interval[1]
         
         else:
