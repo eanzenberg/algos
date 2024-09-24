@@ -1,6 +1,5 @@
 from typing import List
 
-
 def getMinCodeEntryTime(N: int, M: int, C: List[int]) -> int:
     total = 0
     low, high = C[0] - 1, C[0] - 1 + N
@@ -12,6 +11,7 @@ def getMinCodeEntryTime(N: int, M: int, C: List[int]) -> int:
         total += min(abs(num - low), abs(num - high))
         print(f"{low}, {high}, {num}, {total}")
     return total
+
 
 print(getMinCodeEntryTime(3, 3, [1, 2, 3]), 2)
 print(getMinCodeEntryTime(10, 4, [9, 4, 4, 8]), 11)
