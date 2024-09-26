@@ -10,7 +10,6 @@ def maxProduct(nums: List[int]) -> int:
             product *= num
         return product
     
-
     if len(nums) == 1:
         return nums[0]
     
