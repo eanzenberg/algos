@@ -36,10 +36,9 @@ def longestValidParentheses(s: str) -> int:
                 right_paren.append(i)
     return max_len
 
-#)((())(
 
-print(longestValidParentheses("))(()"), 2)
-print(longestValidParentheses("))))((()(("), 2)
+print(longestValidParentheses("))(()"), 2, "\n")
+print(longestValidParentheses("))))((()(("), 2, "\n")
 print(longestValidParentheses("(()"), 2, "\n")
 print(longestValidParentheses("(()()((()"), 4, "\n")
 print(longestValidParentheses(")(()"), 2, "\n")
