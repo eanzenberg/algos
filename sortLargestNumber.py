@@ -9,6 +9,7 @@ def largestNumber(nums: List[int]) -> str:
     print(sorted_nums)
     return "".join(map(str, sorted_nums)) if sorted_nums[0] != 0 else "0"
 
+
 print(largestNumber([3,30,34,5,9]))
 print(largestNumber([1, 5, 4, 3, 2, 1]))
 print(largestNumber([10, 2]))
