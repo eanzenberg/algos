@@ -5,3 +5,5 @@ arrays.py
 /.pytest_cache/*
 .pytest_cache
 scratch.py
+a.py
+b.py
