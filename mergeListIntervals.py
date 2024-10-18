@@ -1,6 +1,6 @@
 from typing import List
 
-def merge(intervals: List[List[int]]) -> List[List[int]]:
+def merge_crappy(intervals: List[List[int]]) -> List[List[int]]:
     intervals = sorted(intervals)
     merged_interval = [None, None]
     collection_of_intervals = []
@@ -29,6 +29,24 @@ def merge(intervals: List[List[int]]) -> List[List[int]]:
         collection_of_intervals.append(merged_interval)
 
     return collection_of_intervals
+
+
+def merge(intervals: List[List[int]]) -> List[List[int]]:
+    intervals.sort()
+    
+    ans = []
+    current_merged_interval = intervals[0]
+
+    for interval in intervals:
+        start, end = interval
+        if start <= current_merged_interval[1]:
+            current_merged_interval[1] = max(end, current_merged_interval[1])
+        else:
+            ans.append(current_merged_interval)
+            current_merged_interval = interval
+
+    ans.append(current_merged_interval)
+    return ans
 
 
 print(merge([[1,3],[2,6],[8,10],[15,18]]), [[1,6],[8,10],[15,18]])
