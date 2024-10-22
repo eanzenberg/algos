@@ -47,6 +47,7 @@ def compare_linked_lists(L1: ListNode, L2: ListNode) -> bool:
 
     return True
 
+
 print(create_linked_list(['hel', '', 'lo']))
 print(create_linked_list(['hell', 'o']))
 
