@@ -60,5 +60,8 @@ print(compare_linked_lists(create_linked_list(['hel', '', 'lo', ' th', 'ere']),
 print(compare_linked_lists(create_linked_list(['hel', '', 'lo']),
                            create_linked_list(['hell', 'o', '3'])), False)
 
+print(compare_linked_lists(create_linked_list(['a']),
+                           create_linked_list(['a', '3'])), False)
+
 print(compare_linked_lists(create_linked_list(['']),
                            create_linked_list([''])), True)
