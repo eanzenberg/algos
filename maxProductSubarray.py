@@ -1,8 +1,8 @@
 from typing import List
 
 
-def maxProduct(nums: List[int]) -> int:
-    def prod_of_array(nums: List[int]) -> int | None:
+def maxProduct(nums: List[int]):
+    def prod_of_array(nums: List[int]):
         if nums == []:
             return -float("inf")
         product = 1

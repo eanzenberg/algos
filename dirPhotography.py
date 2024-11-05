@@ -1,4 +1,7 @@
-def findAllCharsWithinDistance(str, X, Y, char, locRoot, direction = 'lr') -> list():
+from typing import List
+
+
+def findAllCharsWithinDistance(str, X, Y, char, locRoot, direction = 'lr') -> List:
     res = []
 
     # Right

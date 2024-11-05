@@ -5,22 +5,23 @@ from typing import List, Tuple
 def robotSim(commands: List[int], obstacles: List[List[int]]) -> int:
     def check_collision(start: Tuple[int, int], dir: str, amount: int, 
                          obstacles_set: set) -> Tuple[int, int]:
-
-        move = {'n': [0,1],
-                's': [0,-1],
-                'e': [1,0],
-                'w': [-1,0]}
+        direction = namedtuple('direction', ['x', 'y'])
+       
+        move = {'n': direction(0,1),
+                's': direction(0,-1),
+                'e': direction(1,0),
+                'w': direction(-1,0)}
         
         x, y = start
 
         for _ in range(amount):
-            x, y = x + move[dir][0], y + move[dir][1]
+            x, y = x + move[dir].x, y + move[dir].y
             if (x,y) in obstacles_set:
-                x, y = x - move[dir][0], y - move[dir][1]                
-                return x, y
+                return x - move[dir].x, y - move[dir].y
 
         return x, y
     
+
     obstacles_set = set(tuple(item) for item in obstacles)
     dirs = {'n': {'l': 'w',
                   'r': 'e'},
@@ -70,6 +71,7 @@ tests = [
 ]
 
 for t in tests:
-    ans = robotSim(t.input.commands, t.input.obstacles)
+    ans = robotSim(commands=t.input.commands, 
+                   obstacles=t.input.obstacles)
     print(ans, t.output)
     assert ans == t.output
